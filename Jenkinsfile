@@ -1,17 +1,16 @@
 pipeline {
     agent any
+
     stages {
-        stage('Clone Git Repository') {
-            steps {
-                git branch: 'main', url: 'https://github.com/gujjar-aditya/jenkins-ansible.git'
+        stage("jdvs"){
+            steps{
+                git branch: 'main', url: 'https://github.com/RaksAniruddha/jenkins-ansible/blob/main/install_apache.yml'
             }
         }
-
-        stage('Run Ansible Playbook') {
+        stage('Hello') {
             steps {
-                ansiblePlaybook credentialsId: 'ansible-ssh', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'inventory.ini', playbook: 'install_apache.yml', vaultTmpPath: ''
+              ansiblePlaybook credentialsId: 'ansible-ssh', disableHostKeyChecking: true, installation: 'ansible2', inventory: '/etc/ansible/hosts', playbook: 'https://github.com/RaksAniruddha/jenkins-ansible/blob/main/install_apache.yml', vaultTmpPath: ''
             }
         }
     }
 }
-
