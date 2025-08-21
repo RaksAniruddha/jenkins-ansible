@@ -5,12 +5,12 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                git branch: 'main', credentialsId: 'ansible-ssh', url: 'https://github.com/RaksAniruddha/jenkins-ansible/'
+                git branch: 'main', url: 'https://github.com/RaksAniruddha/jenkins-ansible/'
             }
         }
         stage("khhvds"){
             steps {
-                ansiblePlaybook credentialsId: 'ansible-ssh', installation: 'ansible2', inventory: 'inventory.ini', playbook: 'install_apache.yml', vaultTmpPath: ''
+               ansiblePlaybook credentialsId: 'ansible-ssh', installation: 'ansible2', inventory: 'inventory.ini', playbook: 'install_apache.yml', vaultTmpPath: ''
             }
         }
     }
