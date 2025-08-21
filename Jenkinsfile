@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                git branch: 'main', url: 'https://github.com/RaksAniruddha/jenkins-ansible/'
+               git branch: 'main', credentialsId: 'ansible-ssh', url: 'https://github.com/RaksAniruddha/jenkins-ansible/'
             }
         }
         stage("khhvds"){
