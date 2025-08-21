@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Hello') {
             steps {
-             ansiblePlaybook credentialsId: 'ansible-ssh', installation: 'ansible2', inventory: '/etc/ansible/hosts', playbook: 'https://github.com/RaksAniruddha/jenkins-ansible/blob/main/install_apache.yml', vaultTmpPath: ''
+                ansiblePlaybook credentialsId: 'ansible-ssh', installation: 'ansible2', inventory: 'https://github.com/RaksAniruddha/jenkins-ansible/blob/main/inventory.ini', playbook: 'https://github.com/RaksAniruddha/jenkins-ansible/blob/main/install_apache.yml', vaultTmpPath: ''
             }
         }
     }
